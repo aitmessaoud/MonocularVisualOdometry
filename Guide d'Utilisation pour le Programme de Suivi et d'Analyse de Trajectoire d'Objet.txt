@@ -1,0 +1,30 @@
+***Aperçu du Programme de Vision par Ordinateur***
+Ce programme est conçu pour analyser une séquence d'images, identifier et suivre des points d'intérêt spécifiques sur un objet, et calculer la position relative de la caméra. Il utilise des techniques de vision par ordinateur pour effectuer un suivi précis et analyser les mouvements de l'objet dans l'espace.
+
+**Fonctionnement du Programme
+Chargement de la Matrice Intrinsèque et Initialisation SIFT :
+
+Le programme démarre en chargeant une matrice intrinsèque à partir d'un fichier .mat, essentielle pour la calibration de la caméra.
+Il initialise ensuite l'algorithme SIFT, qui est utilisé pour détecter et décrire les caractéristiques clés dans les images.
+Traitement des Images :
+
+Les images sont lues une par une à partir d'un dossier spécifié.
+Chaque image est convertie en niveaux de gris et traitée pour détecter les caractéristiques à l'aide de SIFT.
+Appariement des Caractéristiques et Calcul de la Homographie :
+
+Le programme utilise BFMatcher pour trouver les meilleures correspondances entre les caractéristiques des images successives.
+Il calcule également la matrice de homographie pour comprendre comment les points d'une image sont transformés dans une autre.
+Chargement et Utilisation des Points d'Intérêt Prédéfinis :
+
+Les points d'intérêt et leurs correspondances dans le monde réel sont chargés à partir d'un fichier JSON.
+Ces points sont utilisés pour des analyses ultérieures, comme le calcul de la position de la caméra.
+Analyse de la Trajectoire et Visualisation :
+
+Le programme analyse la trajectoire de l'objet en comparant les positions calculées avec une trajectoire réelle.
+Les résultats sont visualisés en 3D et 2D pour une compréhension approfondie des mouvements de l'objet.
+**Fonctions Clés**
+select_interest_points : Permet une sélection manuelle des points d'intérêt sur une image.
+compute_homography : Calcule la matrice de homographie entre deux ensembles de points.
+find_feature_matches : Détecte et apparie les caractéristiques entre deux images.
+compare_des et compare_des_faces : Compare les descripteurs de caractéristiques pour identifier les changements entre différentes faces d'un objet.
+load_interest_points : Charge les points d'intérêt à partir d'un fichier JSON pour une analyse précise.
